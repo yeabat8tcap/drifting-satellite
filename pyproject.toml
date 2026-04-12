@@ -1,0 +1,15 @@
+[project]
+name = "drifting-satellite"
+version = "0.1.0"
+description = "A locally hosted Jarvis utilizing Pipecat, Screenpipe, Ollama, MLX-Whisper, Kokoro TTS"
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "aiohttp>=3.9.5",
+    "python-dotenv>=1.0.1",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+    "websockets>=12.0",
+    "pipecat-ai[webrtc,mlx-whisper,ollama,kokoro,silero-vad]>=0.0.1"
+]

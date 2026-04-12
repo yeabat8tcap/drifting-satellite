@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drifting Satellite | Local Jarvis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="dashboard">
+        <header>
+            <div class="logo">
+                <span class="icon">📡</span>
+                <h1>Drifting Satellite</h1>
+            </div>
+            <div class="status-indicator" id="status-indicator">
+                <span class="dot"></span>
+                <span class="text">Disconnected</span>
+            </div>
+        </header>
+
+        <section class="orb-container">
+            <div class="orb" id="orb">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+            </div>
+        </section>
+
+        <div class="controls">
+            <button id="connect-btn" class="btn primary">Connect to Jarvis</button>
+        </div>
+
+        <audio id="remote-audio" autoplay></audio>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
