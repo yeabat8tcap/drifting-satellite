@@ -11,10 +11,14 @@ echo "Starting Jarvis Backend (Pipecat)..."
 uv run src/main.py > /tmp/jarvis_backend.log 2>&1 &
 BACKEND_PID=$!
 
-# Trap signals for graceful exit
-trap "echo 'Stopping all services...'; kill -9 $BACKEND_PID; exit 0" SIGINT SIGTERM
+echo "Starting Clap Detector..."
+uv run src/clap_detector.py > /tmp/clap_detector.log 2>&1 &
+CLAP_PID=$!
 
-echo "Jarvis is now running in the background. (Backend PID: $BACKEND_PID)"
+# Trap signals for graceful exit
+trap "echo 'Stopping all services...'; kill -9 $BACKEND_PID $CLAP_PID; exit 0" SIGINT SIGTERM
+
+echo "Jarvis is now running in the background. (Backend PID: $BACKEND_PID, Clap PID: $CLAP_PID)"
 
 # Wait endlessly
 wait
