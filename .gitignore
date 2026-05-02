@@ -31,6 +31,10 @@ ENV/
 env.bak/
 venv.bak/
 
+# Scratch scripts
+check_logs.py
+test_pipecat.py
+
 # macOS
 .DS_Store
 .AppleDouble

@@ -174,3 +174,36 @@ connectBtn.addEventListener('click', () => {
         startConnection();
     }
 });
+
+// Auto-connect overlay if URL contains `?wake=true`
+window.addEventListener('load', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('wake') === 'true') {
+        // Create full-screen tap-to-wake overlay to bypass browser AudioContext lock
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.backgroundColor = 'rgba(10, 10, 15, 0.9)';
+        overlay.style.backdropFilter = 'blur(10px)';
+        overlay.style.zIndex = '9999';
+        overlay.style.display = 'flex';
+        overlay.style.justifyContent = 'center';
+        overlay.style.alignItems = 'center';
+        overlay.style.cursor = 'pointer';
+        overlay.style.color = '#fff';
+        overlay.style.fontFamily = "'Outfit', sans-serif";
+        overlay.style.fontSize = '2rem';
+        overlay.style.fontWeight = '700';
+        overlay.innerHTML = 'TAP ANYWHERE TO WAKE JARVIS';
+
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener('click', () => {
+            overlay.remove();
+            startConnection();
+        });
+    }
+});

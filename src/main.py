@@ -147,6 +147,7 @@ async def run_jarvis(webrtc_connection: SmallWebRTCConnection):
             await self.push_frame(frame, direction)
 
     markdown_stripper = MarkdownStripper()
+    
     pipeline = Pipeline([
         transport.input(),
         stt,
@@ -163,7 +164,8 @@ async def run_jarvis(webrtc_connection: SmallWebRTCConnection):
         pipeline,
         params=PipelineParams(
             allow_interruptions=True,
-            enable_metrics=True
+            enable_metrics=True,
+            cancel_on_idle_timeout=False
         ),
     )
 
